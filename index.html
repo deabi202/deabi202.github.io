@@ -1,58 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>deabi202 - Telegram kanal</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>deabi202 – Telegram kanali</title>
+  <meta name="description" content="deabi202 Telegram kanali: yangiliklar, maslahatlar va qiziqarli kontent. Qo‘shiling: t.me/deabi202">
+  <meta name="keywords" content="deabi202, Telegram kanal, yangiliklar, maslahatlar">
+  <meta property="og:title" content="deabi202 – Telegram kanali">
+  <meta property="og:description" content="deabi202 Telegram kanali: yangiliklar, maslahatlar va qiziqarli kontent.">
+  <meta property="og:url" content="https://t.me/deabi202">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://example.com/kanal-avatar.jpg">
   <style>
     body {
-      background: url('car_4k_compressed.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-align: center;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-    }
-    header {
-      padding: 50px 20px 20px;
-    }
-    header img {
-      width: 150px;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    a {
-      display: inline-block;
-      background-color: rgba(255, 255, 255, 0.2);
       color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.3s;
+      text-align: center;
+      background: url('car_4k_compressed.jpg') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(4px);
     }
-    a:hover {
-      background-color: rgba(255, 255, 255, 0.4);
+    .content {
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      margin: 60px auto;
+      max-width: 600px;
+    }
+    .play-btn {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      backdrop-filter: blur(6px);
+    }
+    .play-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <header>
-    <audio controls autoplay loop>
-  <source src="akai.mp3" type="audio/mpeg">
-  Sizning brauzeringiz audio fayllarni qo‘llab-quvvatlamaydi.
-</audio>
-    <img src="logo.png" alt="deabi202 logo">
-    <h1>deabi202 Telegram kanali</h1>
-    <p>Yangiliklar, qo'shiqlar va qiziqarli postlar uchun bizga qo‘shiling!</p>
-    <a href="https://t.me/deabi202" target="_blank">Kanalga o‘tish</a>
-  </header>
+  <div class="content">
+    <h1>deabi202 – Telegram kanali</h1>
+    <p>Salom! Siz <strong>deabi202</strong> Telegram kanaliga tashrif buyurdingiz. Bu yerda qo'shiqlar, maslahatlar, qiziqarli postlar bilan bo‘lishamiz.</p>
+    <p>📌 Kanalga qo‘shilish: <a href="https://t.me/deabi202" target="_blank" rel="noopener" style="color:#aad;">t.me/deabi202</a></p>
+    <p>🌐 Veb shaklda postlar: <a href="https://t.me/s/deabi202" target="_blank" rel="noopener" style="color:#aad;">t.me/s/deabi202</a></p>
+
+    <button class="play-btn" id="playBtn">▶️ Play Music</button>
+    <audio id="player" autoplay></audio>
+  </div>
+
+  <footer style="margin-top:50px;">
+    <p>&copy; 2032 mK Telegram kanal. All huquqlar himoyalangan.</p>
+  </footer>
+
+  <script>
+    const player = document.getElementById("player");
+    const btn = document.getElementById("playBtn");
+
+    btn.addEventListener("click", () => {
+      player.src = "akai.mp3"; // bu yerda senga kerakli fayl nomi
+      player.play();
+      btn.textContent = "🎵 Playing AKAI...";
+      btn.style.opacity = "0.7";
+      btn.disabled = true;
+    });
+  </script>
 </body>
 </html>
-
