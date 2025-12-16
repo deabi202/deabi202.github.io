@@ -4,16 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>deAbi – Telegram kanali</title>
-  <meta name="description" content="deAbi Telegram kanali: qo‘shiqlar, maslahatlar va qiziqarli postlar.">
-  <meta name="keywords" content="deAbi, Telegram kanal, yangiliklar, musiqa, maslahatlar">
-  <meta property="og:title" content="deAbi – Telegram kanali">
-  <meta property="og:description" content="deAbi Telegram kanali: qo‘shiqlar, maslahatlar va qiziqarli postlar.">
-  <meta property="og:url" content="https://t.me/deabi202">
-  <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
-    /* Umumiy sahifa uslubi */
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
@@ -26,10 +19,9 @@
       animation: fadeIn 1.5s ease-in;
     }
 
-    /* Asosiy kontent */
     .content {
       padding: 40px;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.55);
       border-radius: 18px;
       margin: 8% auto;
       max-width: 600px;
@@ -38,19 +30,17 @@
       animation: slideUp 1.3s ease-out;
     }
 
-    /* deAbi sarlavhasi */
     h1 {
       font-size: 2.5em;
       position: relative;
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    /* Tag chizig‘i */
     h1::after {
       content: "";
       position: absolute;
-      bottom: -5px;
+      bottom: -6px;
       left: 0;
       width: 100%;
       height: 3px;
@@ -59,43 +49,39 @@
       animation: glowLine 2s infinite alternate;
     }
 
-    /* Tugma */
     .play-btn {
       margin-top: 25px;
-      padding: 14px 35px;
+      padding: 14px 36px;
       font-size: 20px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       background: linear-gradient(90deg, #007bff, #00c3ff);
       color: white;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,170,255,0.6);
     }
 
     .play-btn:hover {
       transform: scale(1.07);
-      box-shadow: 0 0 25px rgba(0, 200, 255, 0.8);
+      box-shadow: 0 0 25px rgba(0,200,255,0.9);
     }
 
     a {
       color: #8ecbff;
       text-decoration: none;
-      transition: 0.3s;
     }
 
     a:hover {
-      color: #b5e3ff;
       text-shadow: 0 0 8px #9fd8ff;
     }
 
     footer {
-      margin-top: 50px;
+      margin-top: 45px;
       color: rgba(255,255,255,0.8);
       font-size: 14px;
     }
 
-    /* Kirish animatsiyalar */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -112,36 +98,50 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="content">
-    <h1>deAbi – Telegram kanali</h1>
-    <p>Salom! Siz <strong>deAbi</strong> Telegram kanaliga tashrif buyurdingiz 🎧<br>
-       Bu yerda qo‘shiqlar, maslahatlar va qiziqarli postlar joylashgan!</p>
 
-    <p>📌 Kanalga qo‘shilish: <a href="https://t.me/deabi202" target="_blank">t.me/deabi202</a></p>
-    <p>🌐 Postlarni ko‘rish: <a href="https://t.me/s/deabi202" target="_blank">t.me/s/deabi202</a></p>
+<div class="content">
+  <h1>deAbi – Telegram kanali</h1>
 
-    <button class="play-btn" id="playBtn">▶️ Play AKAI</button>
-    <audio id="player" preload="auto" src="akai.mp3"></audio>
-  </div>
+  <p>
+    Salom! Siz <strong>deAbi</strong> Telegram kanaliga tashrif buyurdingiz 🎧<br>
+    Bu yerda qo‘shiqlar, maslahatlar va qiziqarli postlar joylashgan.
+  </p>
 
-  <footer>
-    <p>&copy; 2032 deAbi Telegram kanal. All huquqlar himoyalangan.</p>
-  </footer>
+  <p>📌 <a href="https://t.me/deabi202" target="_blank">t.me/deabi202</a></p>
+  <p>🌐 <a href="https://t.me/s/deabi202" target="_blank">t.me/s/deabi202</a></p>
 
-  <script>
-    const player = document.getElementById("player");
-    const btn = document.getElementById("playBtn");
+  <button class="play-btn" id="playBtn">▶️ Play AKAI</button>
 
-    btn.addEventListener("click", () => {
-      player.play().then(() => {
-        btn.textContent = "🎶 AKAI chalinyapti...";
-        btn.disabled = true;
-        btn.style.opacity = "0.7";
-      }).catch(() => {
-        alert("Brauzer audio ijrosini bloklagan. Iltimos, sahifani yangilang yoki Play tugmasini qayta bosing.");
-      });
-    });
-  </script>
+  <audio id="player" src="akai.mp3" preload="auto"></audio>
+</div>
+
+<footer>
+  <p>&copy; 2032 deAbi Telegram kanal. All huquqlar himoyalangan.</p>
+</footer>
+
+<script>
+  const player = document.getElementById("player");
+  const btn = document.getElementById("playBtn");
+
+  player.volume = 1;
+
+  btn.addEventListener("click", async () => {
+    try {
+      if (player.paused) {
+        await player.play();
+        btn.textContent = "⏸ Pause AKAI";
+      } else {
+        player.pause();
+        btn.textContent = "▶️ Play AKAI";
+      }
+    } catch (e) {
+      alert("Audio topilmadi yoki brauzer blokladi. akai.mp3 joylashuvini tekshiring.");
+      console.error(e);
+    }
+  });
+</script>
+
 </body>
 </html>
